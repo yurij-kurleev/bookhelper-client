@@ -4,7 +4,7 @@
     flex-flow: row wrap;
 }
 
-.input-container{
+.input-container, .radio-btn-container{
     margin: 2% 30%;
     font-size: 1.5rem;
     width: 100%;

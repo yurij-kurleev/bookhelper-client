@@ -1,0 +1,35 @@
+<div class="full-width">
+  <h1 class="h1-header">Add client</h1>
+</div>
+<form class="form">
+  <md-input-container class="input-container">
+    <input mdInput #name maxlength="30" placeholder="Name" required>
+    <md-hint *ngIf="name.value.length > 0" align="end">{{name.value.length}} / 30</md-hint>
+    <md-hint *ngIf="name.value.length === 0" align="end" class="error-msg">Input name!</md-hint>
+  </md-input-container>
+  <md-input-container class="input-container">
+    <input mdInput #surname maxlength="30" placeholder="Surname" required>
+    <md-hint *ngIf="surname.value.length > 0" align="end">{{surname.value.length}} / 30</md-hint>
+    <md-hint *ngIf="surname.value.length === 0" align="end" class="error-msg">Input surname!</md-hint>
+  </md-input-container>
+  <md-input-container class="input-container">
+    <input mdInput #patronymic maxlength="30" placeholder="Patronymic" required>
+    <md-hint *ngIf="patronymic.value.length > 0" align="end">{{patronymic.value.length}} / 30</md-hint>
+    <md-hint *ngIf="patronymic.value.length === 0" align="end" class="error-msg">Input patronymic!</md-hint>
+  </md-input-container>
+  <md-radio-group class="radio-btn-container" labelPosition="before" value="Gender">
+    <label class="label">Gender</label>
+    <md-radio-button value="0" checked="true">Male</md-radio-button>
+    <md-radio-button value="1">Female</md-radio-button>
+  </md-radio-group>
+  <md-input-container class="input-container">
+    <input mdInput #phone maxlength="20" placeholder="Phone" type="tel" required>
+    <md-hint *ngIf="phone.value.length > 0" align="end">{{phone.value.length}} / 20</md-hint>
+    <md-hint *ngIf="phone.value.length === 0" align="end" class="error-msg">Input phone!</md-hint>
+  </md-input-container>
+  <md-input-container class="input-container">
+    <input mdInput #age type="number" placeholder="Age">
+  </md-input-container>
+  <button md-raised-button class="submit-btn">Add</button>
+</form>
+

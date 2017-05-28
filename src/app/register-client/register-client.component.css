@@ -4,7 +4,7 @@
     flex-flow: row wrap;
 }
 
-.input-container{
+.input-container, .radio-btn-container{
     margin: 2% 30%;
     font-size: 1.5rem;
     width: 100%;
@@ -31,4 +31,16 @@
 
 .error-msg{
     color: #d50000;
+}
+
+.label{
+    flex: 1 100%;
+    margin: 2% 0;
+    font-size: 1.5rem;
+}
+
+.radio-btn-container{
+    display: flex;
+    justify-content: space-around;
+    flex-flow: row wrap;
 }

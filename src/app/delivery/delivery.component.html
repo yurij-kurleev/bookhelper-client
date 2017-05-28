@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="input-container">
+    <md-input-container>
+      <input type="text" mdInput [formControl]="providerControl"
+             [mdAutocomplete]="auto" placeholder="Provider...">
+    </md-input-container>
+    <md-autocomplete #auto="mdAutocomplete">
+      <md-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{ option }}
+      </md-option>
+    </md-autocomplete>
+  </div>
+
+  <h2 class="h2-header">Delivery</h2>
+  <div class="book-row input-container" *ngFor="let row of rows">
+    <md-input-container class="input-block">
+      <input type="text" mdInput [formControl]="bookControl"
+             [mdAutocomplete]="book" placeholder="Book..." [(ngModel)]="title">
+    </md-input-container>
+    <md-autocomplete #book="mdAutocomplete">
+      <md-option *ngFor="let option of filteredBooks | async" [value]="option">
+        {{ option }}
+      </md-option>
+    </md-autocomplete>
+    <md-input-container>
+      <input type="number" placeholder="Amount..." mdInput [(ngModel)]="amount">
+    </md-input-container>
+  </div>
+  <button md-fab (click)="addDeliverItem()" class="circular-btn" [disabled]="!isPlusActive()">+</button>
+  <div *ngIf="deliveryItems?.length > 0" class="ready-delivery">
+    <div class="title" *ngIf="!itemToChange?.title.length > 0 && !itemToChange?.amount">Title</div>
+    <div class="amount" *ngIf="!itemToChange?.title.length > 0 && !itemToChange?.amount">Amount</div>
+    <div *ngFor="let item of deliveryItems" class="delivery-item">
+        <div class="title" *ngIf="!itemToChange?.title.length > 0 && !itemToChange?.amount">
+          {{(item.title.length > 50)? item.title.substring(0, 50) + '...' : item.title}}
+        </div>
+        <div class="amount" *ngIf="!itemToChange?.title.length > 0 && !itemToChange?.amount">
+          {{item.amount}}
+          <span class="delete-icon" (click)="deleteRow(item)">
+            <i class="large material-icons">delete</i>
+          </span>
+          <span class="delete-icon" (click)="updateRow(item)">
+            <i class="large material-icons">mode_edit</i>
+          </span>
+        </div>
+    </div>
+
+    <div *ngIf="itemToChange?.title.length > 0 && itemToChange?.amount">
+      <md-input-container class="edit-input">
+        <input type="text" mdInput [formControl]="editBookControl"
+               [mdAutocomplete]="editBook" placeholder="Book..." [(ngModel)]="itemToChange.title">
+      </md-input-container>
+
+      <md-autocomplete #editBook="mdAutocomplete">
+        <md-option *ngFor="let option of filteredBooks | async" [value]="option">
+          {{ option }}
+        </md-option>
+      </md-autocomplete>
+      <md-input-container class="edit-input">
+        <input type="number" placeholder="Amount..." mdInput [(ngModel)]="itemToChange.amount">
+      </md-input-container>
+      <button md-raised-button class="edit-submit-btn" [disabled]="!isDoneActive()">Ok</button>
+      <button md-raised-button class="edit-cancel-btn" (click)="itemToChange = {title: '', amount: 0}">Cancel</button>
+    </div>
+  </div>
+  <button md-raised-button class="submit-btn" [disabled]="!isDoneActive() || itemToChange?.title.length > 0 && itemToChange?.amount">Done</button>
+</div>
+

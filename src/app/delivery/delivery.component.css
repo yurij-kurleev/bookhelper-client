@@ -1,0 +1,79 @@
+.container{
+    display: flex;
+    padding: 3% 10%;
+    flex-flow: row wrap;
+}
+
+.input-container{
+    font-size: 1.3rem;
+    flex: 1 100%;
+}
+
+.h2-header{
+    flex: 1 100%;
+    font-size: 3rem;
+    color: #d1c4e9;
+    text-align: center;
+}
+
+.circular-btn{
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.submit-btn{
+    flex: 1 100%;
+    margin: 2% 30%;
+    background-color: #2e7d32;
+    color: #fff;
+    font-size: 1.5rem;
+}
+
+.delete-icon{
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.ready-delivery{
+    display: flex;
+    flex: 1 100%;
+    margin: 50px 0;
+    flex-flow: row wrap;
+}
+
+.title, .amount{
+    flex: 1 50%;
+    font-size: 1.6rem;
+}
+
+.delivery-item{
+    display: flex;
+    flex: 1 100%;
+    margin: 10px 0;
+    flex-flow: row wrap;
+}
+
+.amount {
+    display: flex;
+    justify-content: space-between;
+}
+
+.edit-submit-btn{
+    background-color: #2e7d32;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.edit-cancel-btn{
+    background-color: #d50000;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.edit-input{
+    font-size: 1.6rem;
+}
+
+.input-block{
+    width: 45%;
+}

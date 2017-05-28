@@ -1,3 +1,16 @@
-<p>
-  authorize works!
-</p>
+<div class="full-width">
+    <h1 class="h1-header">Авторизация</h1>
+</div>
+<form class="form">
+    <md-input-container class="input-container">
+        <input mdInput #login maxlength="30" placeholder="Login" required>
+        <md-hint *ngIf="login.value.length > 0" align="end">{{login.value.length}} / 30</md-hint>
+        <md-hint *ngIf="login.value.length === 0" align="end" class="error-msg">Input login!</md-hint>
+    </md-input-container>
+    <md-input-container class="input-container">
+        <input mdInput #password maxlength="30" placeholder="Password" type="password" required>
+        <md-hint *ngIf="password.value.length > 0" align="end">{{password.value.length}} / 30</md-hint>
+        <md-hint *ngIf="password.value.length === 0" align="end" class="error-msg">Input password!</md-hint>
+    </md-input-container>
+    <button md-raised-button class="submit-btn">Submit</button>
+</form>

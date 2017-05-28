@@ -1,0 +1,25 @@
+<div class="full-width">
+  <h1 class="h1-header">Add provider</h1>
+</div>
+<form class="form">
+  <md-input-container class="input-container">
+    <input mdInput #title maxlength="30" placeholder="Title" required>
+    <md-hint *ngIf="title.value.length > 0" align="end">{{title.value.length}} / 30</md-hint>
+    <md-hint *ngIf="title.value.length === 0" align="end" class="error-msg">Input title!</md-hint>
+  </md-input-container>
+  <md-input-container class="input-container">
+    <textarea mdInput #description maxlength="500" placeholder="Description" mdTextareaAutosize mdAutosizeMinRows="4"></textarea>
+    <md-hint align="end">{{description.value.length}} / 500</md-hint>
+  </md-input-container>
+  <md-input-container class="input-container">
+    <input mdInput #email maxlength="30" placeholder="E-mail" type="email" required>
+    <md-hint *ngIf="email.value.length > 0" align="end">{{email.value.length}} / 30</md-hint>
+    <md-hint *ngIf="email.value.length === 0" align="end" class="error-msg">Input email!</md-hint>
+  </md-input-container>
+  <md-input-container class="input-container">
+    <input mdInput #phone maxlength="20" placeholder="Phone" type="tel" required>
+    <md-hint *ngIf="phone.value.length > 0" align="end">{{phone.value.length}} / 20</md-hint>
+    <md-hint *ngIf="phone.value.length === 0" align="end" class="error-msg">Input phone!</md-hint>
+  </md-input-container>
+  <button md-raised-button class="submit-btn">Add</button>
+</form>
